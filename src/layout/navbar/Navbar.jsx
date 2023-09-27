@@ -1,15 +1,38 @@
 import { Box, Typography, CssBaseline, Toolbar, AppBar } from "@mui/material";
 import React from "react";
 import NavButtons from "./NavButtons";
-import { Outlet } from "react-router-dom";
+import { useNavigate, Outlet } from "react-router-dom";
+import CategoryDrawer from "../../components/CategoryDrawer";
 
 const Navbar = () => {
+  const textCursor = {
+    color: "black",
+    cursor: "pointer",
+    fontFamily: "BlinkMacSystemFont",
+  };
+  const navigate = useNavigate();
+
   return (
     <Box sx={{ display: "flex", height: "93vh" }}>
       <CssBaseline />
       <AppBar sx={{ background: "#d1d1d1" }}>
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", marginLeft: "15%" }}>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <CategoryDrawer />
+            <Typography
+              variant="h5"
+              style={textCursor}
+              onClick={() => navigate("/")}
+            >
+              HOME
+            </Typography>
+          </div>
+          <div style={{ display: "flex", marginLeft: "4%" }}>
             <Typography
               variant="h5"
               sx={{
@@ -30,10 +53,10 @@ const Navbar = () => {
                 fontFamily: "Verdana",
               }}
             >
-              SNEAKERS
+              &nbsp; SNEAKERS
             </Typography>
           </div>
-          <NavButtons />
+          <NavButtons textCursor={textCursor} />
         </Toolbar>
       </AppBar>
       <Box component="main" sx={{ width: "100%" }}>
