@@ -14,8 +14,9 @@ const Navbar = () => {
               variant="h5"
               sx={{
                 color: "black",
-                fontWeight: "bold",
+                fontSize: "1.7em",
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                fontFamily: "Verdana",
               }}
             >
               BIGU
@@ -24,11 +25,12 @@ const Navbar = () => {
               variant="h5"
               color="error"
               sx={{
-                fontWeight: "bold",
+                fontSize: "1.7em",
                 textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+                fontFamily: "Verdana",
               }}
             >
-              SHOP
+              SNEAKERS
             </Typography>
           </div>
           <NavButtons />
