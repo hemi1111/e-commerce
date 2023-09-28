@@ -1,18 +1,29 @@
 import { useQuery } from "@apollo/client";
 import React from "react";
-import { GET_SHOES } from "../../queries/queries";
+import { FILTER_BY_CATEGORY } from "../../queries/queries";
 import { Box, Grid, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ShoeCard from "../../components/ShoeCard";
+import { useLocation } from "react-router-dom";
 const Shop = () => {
+  const { category } = useParams();
+  const location = useLocation();
+  const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
   const navigate = useNavigate();
 
-  const { data, error } = useQuery(GET_SHOES);
+  const { data, error } = useQuery(FILTER_BY_CATEGORY, {
+    variables: {
+      category: categoryName,
+    },
+  });
+  console.log(categoryName);
   if (error) return console.log(error);
   return (
     <div>
-      <Typography variant="h3" sx={{ ml: "42%", mt: "20px" }}>
-        NEW ARRIVALS
+      <Typography variant="h3" sx={{ ml: "35%", mt: "20px" }}>
+        {location.pathname === "/shop/kids"
+          ? `NEW ${categoryName.toUpperCase()}' COLLECTION`
+          : `NEW ${categoryName.toUpperCase()}'S COLLECTION`}
       </Typography>
       <Box
         sx={{

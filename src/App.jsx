@@ -4,6 +4,8 @@ import Navbar from "./layout/navbar/Navbar";
 import HomePage from "./layout/homepage/HomePage";
 import Shop from "./layout/pages/Shop";
 import Cart from "./layout/pages/Cart";
+import ShopByCategory from "./layout/pages/ShopByCategory";
+import SingleItem from "./layout/pages/SingleItem";
 const App = () => {
   return (
     <>
@@ -12,7 +14,13 @@ const App = () => {
           <Route path="/" element={<Navbar />}>
             <Route index element={<HomePage />} />
             <Route path="shop" element={<Shop />} />
+
             <Route path="cart" element={<Cart />} />
+            <Route
+              path="/shop/:shoeCompany/:shoeName/:id"
+              element={<SingleItem />}
+            />
+            <Route path="/shop/:category" element={<ShopByCategory />} />
           </Route>
         </Routes>
       </BrowserRouter>
