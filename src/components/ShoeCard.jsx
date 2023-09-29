@@ -9,17 +9,35 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 const ShoeCard = (props) => {
   const navigate = useNavigate();
-  const { image, model, make, price, id, gender } = props;
+  const { image, model, make, price, id, gender, size } = props;
   const { cartItems, setCartItems } = useContext(CartContext);
-  const addToCart = (itemId) => {
-    setCartItems(...cartItems, {
-      id: itemId,
-      image: image,
-      company: make,
-      model: model,
-      price: price,
-    });
+
+  const addToCart = (itemId, e) => {
+    // Check if the item with the same ID already exists in the cart
+    const itemIndex = cartItems.findIndex((shoe) => shoe.id === itemId);
+
+    if (itemIndex !== -1) {
+      // Item exists in the cart, so update its quantity
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[itemIndex].quantity += 1;
+      setCartItems(updatedCartItems);
+    } else {
+      // Item is not in the cart, so add it with quantity 1
+      const newItem = {
+        id: itemId,
+        image: image,
+        company: make,
+        model: model,
+        price: price,
+        size: size,
+        quantity: 1,
+      };
+      setCartItems((prevItems) => [...prevItems, newItem]);
+    }
+
+    e.preventDefault();
   };
+
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
@@ -35,10 +53,16 @@ const ShoeCard = (props) => {
             {make} {model}
           </Typography>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <Typography variant="body2" color="text.secondary">
-              Price {price}$
-            </Typography>
-            <IconButton onClick={() => addToCart(id)}>
+            <div>
+              <Typography variant="body2" color="text.secondary">
+                Price {price}$
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Size: {size} EU
+              </Typography>
+            </div>
+
+            <IconButton onClick={(e) => addToCart(id, e)}>
               <AddShoppingCartIcon color="success" />
             </IconButton>
           </div>

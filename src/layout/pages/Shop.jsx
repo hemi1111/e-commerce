@@ -26,6 +26,7 @@ const Shop = () => {
             data.shoes.map((shoe) => (
               <Grid item key={shoe.id} xs={12} sm={6} md={4} lg={3}>
                 <ShoeCard
+                  size={shoe.size}
                   id={shoe.id}
                   image={shoe.image}
                   model={shoe.name}
