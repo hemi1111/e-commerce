@@ -1,17 +1,21 @@
 import { createContext, useState } from "react";
 
-export const AppContext = createContext();
+export const CartContext = createContext();
 
-export const AppProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
-
-  const addToCart = (itemId) => {
-    setCartItems(...cartItems);
-  };
+export const CartProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState([
+    {
+      id: 0,
+      image: "",
+      company: "",
+      model: "",
+      price: 0,
+    },
+  ]);
 
   return (
-    <AppContext.Provider value={{ cartItems, setCartItems }}>
+    <CartContext.Provider value={{ cartItems, setCartItems }}>
       {children}
-    </AppContext.Provider>
+    </CartContext.Provider>
   );
 };

@@ -2,13 +2,11 @@ import { useQuery } from "@apollo/client";
 import React from "react";
 import { GET_SHOES } from "../../queries/queries";
 import { Box, Grid, Typography } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 import ShoeCard from "../../components/ShoeCard";
 const Shop = () => {
-  const navigate = useNavigate();
-
   const { data, error } = useQuery(GET_SHOES);
   if (error) return console.log(error);
+  console.log(data && data);
   return (
     <div>
       <Typography variant="h3" sx={{ ml: "42%", mt: "20px" }}>
@@ -26,23 +24,14 @@ const Shop = () => {
         <Grid container spacing={5}>
           {data &&
             data.shoes.map((shoe) => (
-              <Grid
-                item
-                key={shoe.id}
-                xs={12}
-                sm={6}
-                md={4}
-                lg={3}
-                onClick={() =>
-                  navigate(`/shop/${shoe.company}/${shoe.name}/${shoe.id}`)
-                }
-              >
+              <Grid item key={shoe.id} xs={12} sm={6} md={4} lg={3}>
                 <ShoeCard
-                  key={shoe.id}
+                  id={shoe.id}
                   image={shoe.image}
                   model={shoe.name}
                   make={shoe.company}
                   price={shoe.price}
+                  gender={shoe.gender}
                 />
               </Grid>
             ))}

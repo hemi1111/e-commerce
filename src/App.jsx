@@ -17,10 +17,13 @@ const App = () => {
 
             <Route path="cart" element={<Cart />} />
             <Route
-              path="/shop/:shoeCompany/:shoeName/:id"
+              path="/shop/:shoeCompany/:shoeName/:id/:gender"
               element={<SingleItem />}
             />
-            <Route path="/shop/:category" element={<ShopByCategory />} />
+            <Route
+              path="/shop/category/:gender/:category"
+              element={<ShopByCategory />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

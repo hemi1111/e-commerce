@@ -6,13 +6,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import ShoeCard from "../../components/ShoeCard";
 import { useLocation } from "react-router-dom";
 const Shop = () => {
-  const { category } = useParams();
+  const { category, gender } = useParams();
   const location = useLocation();
+  const genderVariable = gender.charAt(0).toUpperCase() + gender.slice(1);
   const categoryName = category.charAt(0).toUpperCase() + category.slice(1);
   const navigate = useNavigate();
 
   const { data, error } = useQuery(FILTER_BY_CATEGORY, {
     variables: {
+      gender: genderVariable,
       category: categoryName,
     },
   });
@@ -20,10 +22,10 @@ const Shop = () => {
   if (error) return console.log(error);
   return (
     <div>
-      <Typography variant="h3" sx={{ ml: "35%", mt: "20px" }}>
-        {location.pathname === "/shop/kids"
+      <Typography variant="h3" sx={{ ml: "27%", mt: "20px" }}>
+        {location.pathname === "/shop/category/kids"
           ? `NEW ${categoryName.toUpperCase()}' COLLECTION`
-          : `NEW ${categoryName.toUpperCase()}'S COLLECTION`}
+          : `NEW ${genderVariable.toUpperCase()}'S ${categoryName.toUpperCase()} COLLECTION`}
       </Typography>
       <Box
         sx={{

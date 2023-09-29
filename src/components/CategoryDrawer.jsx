@@ -1,15 +1,11 @@
 import { Menu } from "@mui/icons-material";
-import { Drawer, IconButton, List, ListItem } from "@mui/material";
+import { Drawer, IconButton } from "@mui/material";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import DrawerList from "./DrawerList";
 const CategoryDrawer = () => {
-  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  const toggleDrawer = (path) => {
+  const toggleDrawer = () => {
     setOpen(!open);
-    if (path) {
-      navigate(path);
-    }
   };
 
   return (
@@ -18,11 +14,7 @@ const CategoryDrawer = () => {
         <Menu />
       </IconButton>
       <Drawer anchor="left" open={open} onClose={toggleDrawer}>
-        <List>
-          <ListItem onClick={() => toggleDrawer("/shop/men")}>Men</ListItem>
-          <ListItem onClick={() => toggleDrawer("/shop/women")}>Women</ListItem>
-          <ListItem onClick={() => toggleDrawer("/shop/kids")}>Kids</ListItem>
-        </List>
+        <DrawerList open={open} setOpen={setOpen} />
       </Drawer>
     </div>
   );

@@ -31,8 +31,8 @@ export const GET_SINGLE_ITEM = gql`
 `;
 
 export const FILTER_BY_CATEGORY = gql`
-  query getByCategory($category: String!) {
-    shoes(where: { gender: { _eq: $category } }) {
+  query getByCategory($gender: String!, $category: String!) {
+    shoes(where: { gender: { _eq: $gender }, category: { _eq: $category } }) {
       category
       company
       gender
@@ -41,6 +41,19 @@ export const FILTER_BY_CATEGORY = gql`
       name
       price
       size
+    }
+  }
+`;
+
+export const GET_SIMILAR_PRODUCTS = gql`
+  query getSimilarProducts($category: String!) {
+    shoes(where: { gender: { _eq: $category } }) {
+      category
+      company
+      id
+      image
+      gender
+      name
     }
   }
 `;

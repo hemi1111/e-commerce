@@ -2,14 +2,29 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import { CardActionArea, IconButton } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 const ShoeCard = (props) => {
-  const { image, model, make, price } = props;
+  const navigate = useNavigate();
+  const { image, model, make, price, id, gender } = props;
+  const { cartItems, setCartItems } = useContext(CartContext);
+  const addToCart = (itemId) => {
+    setCartItems(...cartItems, {
+      id: itemId,
+      image: image,
+      company: make,
+      model: model,
+      price: price,
+    });
+  };
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
         <CardMedia
+          onClick={() => navigate(`/shop/${make}/${model}/${id}/${gender}`)}
           component="img"
           height="180"
           image={image}
@@ -23,7 +38,9 @@ const ShoeCard = (props) => {
             <Typography variant="body2" color="text.secondary">
               Price {price}$
             </Typography>
-            <AddShoppingCartIcon color="success" />
+            <IconButton onClick={() => addToCart(id)}>
+              <AddShoppingCartIcon color="success" />
+            </IconButton>
           </div>
         </CardContent>
       </CardActionArea>
