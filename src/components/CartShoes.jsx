@@ -9,13 +9,6 @@ import { Button } from "@mui/material";
 const CartShoes = (props) => {
   const { company, model, image, size, quantity } = props;
 
-  const [itemQuantity, setItemQuantity] = useState(quantity);
-  const handleCartQuantityPlus = () => {
-    setItemQuantity(itemQuantity + 1);
-  };
-  const handleCartQuantityMinus = () => {
-    setItemQuantity(itemQuantity - 1);
-  };
   return (
     <div>
       <Card sx={{ maxWidth: 345 }}>
@@ -33,15 +26,9 @@ const CartShoes = (props) => {
               </Typography>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <Button variant="contained" onClick={handleCartQuantityPlus}>
-                +
-              </Button>
-              {itemQuantity}
-              <Button
-                variant="contained"
-                color="error"
-                onClick={handleCartQuantityMinus}
-              >
+              <Button variant="contained">+</Button>
+              {quantity}
+              <Button variant="contained" color="error">
                 -
               </Button>
             </div>
