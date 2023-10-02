@@ -5,6 +5,7 @@ import { CartContext } from "../../context/CartContext";
 import { Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import TotalPrice from "../../components/TotalPrice";
 const Cart = () => {
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
@@ -53,6 +54,9 @@ const Cart = () => {
           </>
         )}
       </Box>
+      <div style={{ marginTop: "18%" }}>
+        <TotalPrice />
+      </div>
     </div>
   );
 };

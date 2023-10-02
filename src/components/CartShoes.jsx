@@ -60,7 +60,13 @@ const CartShoes = (props) => {
               >
                 +
               </Button>
-              {quantity}
+              <Typography
+                variant="h6"
+                sx={{ ml: "10px", mr: "10px", mt: "2px" }}
+              >
+                {quantity}
+              </Typography>
+
               <Button
                 variant="contained"
                 color="error"

@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, IconButton } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 const ShoeCard = (props) => {
   const navigate = useNavigate();
@@ -41,7 +41,7 @@ const ShoeCard = (props) => {
         <CardMedia
           onClick={() => navigate(`/shop/${make}/${model}/${id}/${gender}`)}
           component="img"
-          height="180"
+          height="180px"
           image={image}
           alt="green iguana"
         />
