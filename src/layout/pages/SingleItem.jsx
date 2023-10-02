@@ -14,7 +14,6 @@ const SingleItem = () => {
 
   const navigate = useNavigate();
   if (loading) return <CircularProgress />;
-  if (error) return console.log(error);
   return (
     <div
       style={{
@@ -33,6 +32,7 @@ const SingleItem = () => {
         <ArrowBack />
       </Button>
       <ShoeCard
+        size={data.shoes[0].size}
         image={data.shoes[0]?.image}
         model={data.shoes[0]?.name}
         make={data.shoes[0].company}

@@ -52,6 +52,7 @@ export const GET_SIMILAR_PRODUCTS = gql`
       company
       id
       image
+      size
       gender
       name
     }

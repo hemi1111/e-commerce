@@ -9,7 +9,6 @@ const Cart = () => {
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
-  console.log("items", cartItems);
   return (
     <div>
       <Button
@@ -40,6 +39,7 @@ const Cart = () => {
                 return (
                   <Grid key={shoe.id} item xs={12} sm={6} md={4} lg={3}>
                     <CartShoes
+                      id={shoe.id}
                       quantity={shoe.quantity}
                       size={shoe.size}
                       company={shoe.company}

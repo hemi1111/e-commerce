@@ -6,7 +6,7 @@ import { CardActionArea } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 const ShoeCard = (props) => {
   const navigate = useNavigate();
-  const { image, model, make, id, gender } = props;
+  const { image, model, make, id, gender, size } = props;
 
   return (
     <Card sx={{ maxWidth: 345 }}>

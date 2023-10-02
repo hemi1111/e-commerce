@@ -30,6 +30,7 @@ const SimilarProducts = () => {
             return (
               <SimilarCard
                 key={index}
+                size={shoe.size}
                 image={shoe.image}
                 model={shoe.name}
                 make={shoe.company}

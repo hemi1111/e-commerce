@@ -6,7 +6,6 @@ import ShoeCard from "../../components/ShoeCard";
 const Shop = () => {
   const { data, error } = useQuery(GET_SHOES);
   if (error) return console.log(error);
-  console.log(data && data);
   return (
     <div>
       <Typography variant="h3" sx={{ ml: "42%", mt: "20px" }}>
@@ -26,8 +25,8 @@ const Shop = () => {
             data.shoes.map((shoe) => (
               <Grid item key={shoe.id} xs={12} sm={6} md={4} lg={3}>
                 <ShoeCard
-                  size={shoe.size}
                   id={shoe.id}
+                  size={shoe.size}
                   image={shoe.image}
                   model={shoe.name}
                   make={shoe.company}

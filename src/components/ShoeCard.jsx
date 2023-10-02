@@ -13,16 +13,13 @@ const ShoeCard = (props) => {
   const { cartItems, setCartItems } = useContext(CartContext);
 
   const addToCart = (itemId, e) => {
-    // Check if the item with the same ID already exists in the cart
     const itemIndex = cartItems.findIndex((shoe) => shoe.id === itemId);
 
     if (itemIndex !== -1) {
-      // Item exists in the cart, so update its quantity
       const updatedCartItems = [...cartItems];
       updatedCartItems[itemIndex].quantity += 1;
       setCartItems(updatedCartItems);
     } else {
-      // Item is not in the cart, so add it with quantity 1
       const newItem = {
         id: itemId,
         image: image,
@@ -61,7 +58,6 @@ const ShoeCard = (props) => {
                 Size: {size} EU
               </Typography>
             </div>
-
             <IconButton onClick={(e) => addToCart(id, e)}>
               <AddShoppingCartIcon color="success" />
             </IconButton>
