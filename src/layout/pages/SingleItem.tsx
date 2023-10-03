@@ -5,9 +5,13 @@ import { Button} from "@mui/material";
 import ShoeCard from "../../components/ShoeCard";
 import { ArrowBack } from "@mui/icons-material";
 import SimilarProducts from "../../components/SimilarProducts";
+interface SingleItem {
+  shoes:any,
+  id:number,
+}
 const SingleItem = () => {
   const { id } = useParams();
-  const { data} = useQuery(GET_SINGLE_ITEM, {
+  const { data} = useQuery<SingleItem>(GET_SINGLE_ITEM, {
     variables: { id: id },
   });
 
@@ -30,12 +34,12 @@ const SingleItem = () => {
         <ArrowBack />
       </Button>
       <ShoeCard
-        size={data.shoes[0].size}
-        image={data.shoes[0]?.image}
-        model={data.shoes[0]?.name}
-        make={data.shoes[0].company}
-        price={data.shoes[0].price}
-        id={data.shoes[0].id}
+        size={data && data.shoes[0].size}
+        image={data && data.shoes[0]?.image}
+        model={data && data.shoes[0]?.name}
+        make={data && data.shoes[0].company}
+        price={data && data.shoes[0].price}
+        id={data && data.shoes[0].id}
       />
       <div style={{ marginTop: "80px" }}></div>
       <SimilarProducts />

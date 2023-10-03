@@ -5,13 +5,19 @@ import { useParams } from "react-router-dom";
 import ShoeCard from "../../components/ShoeCard";
 import { useLocation } from "react-router-dom";
 import { Shoe } from "./types";
+
+interface filterQuery {
+  shoes: any[],
+  category: string,
+  gender: string,
+}
 const Shop = () => {
   const { category, gender } = useParams();
   const location = useLocation();
   const genderVariable = gender && gender.charAt(0).toUpperCase() + gender.slice(1);
   const categoryName = category && category.charAt(0).toUpperCase() + category.slice(1);
 
-  const { data } = useQuery(FILTER_BY_CATEGORY, {
+  const { data } = useQuery<filterQuery>(FILTER_BY_CATEGORY, {
     variables: {
       gender: genderVariable,
       category: categoryName,

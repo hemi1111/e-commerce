@@ -4,7 +4,6 @@ import { Box, Grid, Typography } from "@mui/material";
 import ShoeCard from "../../components/ShoeCard";
 import {Shoe,ShoesData} from "./types";
 
-
 const Shop = () => {
   const { data } = useQuery<ShoesData>(GET_SHOES);
 
