@@ -1,0 +1,35 @@
+{
+    "include": ["src", "typings"],
+    "compilerOptions": {
+      "jsx": "react-jsx",
+      "lib": ["DOM", "ESNext","WebWorker"],
+      "isolatedModules": true,
+      "module": "esnext",
+      "target": "ESNext",
+      "types": [
+        "@types/node",
+        "@types/react",
+        "@types/react-dom",
+        "vite/client"
+      ],
+      "resolveJsonModule": true,
+      "esModuleInterop": true,
+      "allowJs": true,
+      "skipLibCheck": true,
+      "allowSyntheticDefaultImports": true,
+      "strict": true,
+      "moduleResolution": "node",
+      "noEmit": true,
+      "noImplicitAny": true,
+      "noImplicitThis": true,
+      "alwaysStrict": true,
+      "strictNullChecks": true,
+      "strictFunctionTypes": true,
+      "strictPropertyInitialization": true,
+      "noImplicitReturns": true,
+      "forceConsistentCasingInFileNames": true,
+      "noFallthroughCasesInSwitch": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true
+    }
+  }

@@ -1,5 +1,4 @@
 import { Button, Typography } from "@mui/material";
-import React from "react";
 import drose from "../../assets/drose.png";
 import peza from "../../assets/lokacioniPEZ.jpg";
 import nike from "../../assets/Nike Japan’s Air Max Day 3D Billboard.mp4";

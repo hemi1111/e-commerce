@@ -1,11 +1,13 @@
 import { useQuery } from "@apollo/client";
-import React from "react";
 import { GET_SHOES } from "../../queries/queries";
 import { Box, Grid, Typography } from "@mui/material";
 import ShoeCard from "../../components/ShoeCard";
+import {Shoe,ShoesData} from "./types";
+
+
 const Shop = () => {
-  const { data, error } = useQuery(GET_SHOES);
-  if (error) return console.log(error);
+  const { data } = useQuery<ShoesData>(GET_SHOES);
+
   return (
     <div>
       <Typography variant="h3" sx={{ ml: "42%", mt: "20px" }}>
@@ -22,7 +24,7 @@ const Shop = () => {
       >
         <Grid container spacing={5}>
           {data &&
-            data.shoes.map((shoe) => (
+            data.shoes.map((shoe : Shoe) => (
               <Grid item key={shoe.id} xs={12} sm={6} md={4} lg={3}>
                 <ShoeCard
                   id={shoe.id}

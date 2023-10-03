@@ -4,8 +4,8 @@ import NavButtons from "./NavButtons";
 import { useNavigate, Outlet } from "react-router-dom";
 import CategoryDrawer from "../../components/CategoryDrawer";
 
-const Navbar = () => {
-  const textCursor = {
+const Navbar: React.FC = () => {
+  const textCursor:React.CSSProperties = {
     color: "black",
     cursor: "pointer",
     fontFamily: "BlinkMacSystemFont",

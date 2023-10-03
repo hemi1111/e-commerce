@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import  { useContext } from "react";
 import CartShoes from "../../components/CartShoes";
 import { Grid, Box, Typography } from "@mui/material";
 import { CartContext } from "../../context/CartContext";
@@ -6,6 +6,8 @@ import { Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import TotalPrice from "../../components/TotalPrice";
+import { Shoe } from "./types";
+
 const Cart = () => {
   const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
@@ -36,11 +38,11 @@ const Cart = () => {
         ) : (
           <>
             <Grid container spacing={5}>
-              {cartItems.map((shoe) => {
+              {cartItems.map((shoe: Shoe) => {
                 return (
                   <Grid key={shoe.id} item xs={12} sm={6} md={4} lg={3}>
                     <CartShoes
-                      id={shoe.id}
+                      id={parseInt(shoe.id)}
                       quantity={shoe.quantity}
                       size={shoe.size}
                       company={shoe.company}

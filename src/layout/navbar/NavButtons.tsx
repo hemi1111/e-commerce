@@ -1,10 +1,12 @@
-import { Badge, Stack, TextField } from "@mui/material";
+import { Badge, Stack} from "@mui/material";
 import React, { useContext } from "react";
 import { Person, Search, ShoppingCart } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-// import SearchBar from "../../components/SearchBar";
-const NavButtons = ({ textCursor }) => {
+interface NavButtonsProps {
+  textCursor: React.CSSProperties;
+}
+const NavButtons = ({ textCursor }: NavButtonsProps) => {
   const navigate = useNavigate();
   const { cartItems } = useContext(CartContext);
   return (

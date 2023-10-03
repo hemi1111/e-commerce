@@ -5,15 +5,16 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea, IconButton } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
-const ShoeCard = (props) => {
+import { Shoe } from "../layout/pages/types";
+const ShoeCard = (props:any) => {
   const navigate = useNavigate();
   const { image, model, make, price, id, gender, size } = props;
   const { cartItems, setCartItems } = useContext(CartContext);
 
-  const addToCart = (itemId, e) => {
-    const itemIndex = cartItems.findIndex((shoe) => shoe.id === itemId);
+  const addToCart = (itemId:number, e:any) => {
+    const itemIndex = cartItems.findIndex((shoe:Shoe) => parseInt(shoe.id) === itemId);
 
     if (itemIndex !== -1) {
       const updatedCartItems = [...cartItems];
@@ -29,7 +30,7 @@ const ShoeCard = (props) => {
         size: size,
         quantity: 1,
       };
-      setCartItems((prevItems) => [...prevItems, newItem]);
+      setCartItems((prevItems:any) => [...prevItems, newItem]);
     }
 
     e.preventDefault();

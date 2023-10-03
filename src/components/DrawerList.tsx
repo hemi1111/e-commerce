@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import ListSubheader from "@mui/material/ListSubheader";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -9,7 +9,13 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import { ChildCare, Man, Woman } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-const DrawerList = ({ open, setOpen }) => {
+
+interface DrawerListProps {
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const DrawerList:React.FC<DrawerListProps> = ({ open, setOpen }) => {
   const navigate = useNavigate();
   const [openWomen, setOpenWomen] = useState(false);
   const [openMen, setOpenMen] = useState(false);

@@ -1,6 +1,6 @@
 import { Menu } from "@mui/icons-material";
 import { Drawer, IconButton } from "@mui/material";
-import React, { useState } from "react";
+import  { useState } from "react";
 import DrawerList from "./DrawerList";
 const CategoryDrawer = () => {
   const [open, setOpen] = useState(false);

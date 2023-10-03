@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import  { useContext } from "react";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
@@ -6,22 +6,27 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import { CartContext } from "../context/CartContext";
-
-const CartShoes = (props) => {
+interface CartSoesProps {
+  id:number,
+  company:string,
+  image:string,
+  size:number,
+  model:string,
+  quantity:number
+}
+const CartShoes = (props : CartSoesProps) => {
   const { id, company, model, image, size, quantity } = props;
 
   const { setCartItems, cartItems } = useContext(CartContext);
-  const handleQuantity = (itemId, operation) => {
-    const updatedCartItems = cartItems.map((item) => {
+  const handleQuantity = (itemId:number, operation:string) => {
+    const updatedCartItems = cartItems.map((item:CartSoesProps) => {
       if (item.id === itemId) {
         if (operation === "increment") {
-          // If the operation is "increment", increment the quantity by 1
           return {
             ...item,
             quantity: item.quantity + 1,
           };
         } else if (operation === "decrement" && item.quantity > 0) {
-          // If the operation is "decrement" and quantity > 0, decrement by 1
           return {
             ...item,
             quantity: item.quantity - 1,
@@ -32,7 +37,7 @@ const CartShoes = (props) => {
     });
 
     // Filter out items with quantity greater than 0
-    const filteredItems = updatedCartItems.filter((item) => item.quantity > 0);
+    const filteredItems = updatedCartItems.filter((item:CartSoesProps) => item.quantity > 0);
 
     setCartItems(filteredItems);
   };

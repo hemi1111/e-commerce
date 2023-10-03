@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Button, Typography } from "@mui/material";
+import { useContext } from "react";
+import { Typography } from "@mui/material";
 import { CartContext } from "../context/CartContext";
 import Pay from "./Pay";
 
@@ -7,7 +7,7 @@ const TotalPrice = () => {
   const { cartItems, calculateTotalPrice } = useContext(CartContext);
 
   const total = calculateTotalPrice(cartItems);
-  const footerStyle = {
+  const footerStyle:React.CSSProperties = {
     position: "absolute",
     display: "flex",
     justifyContent: "space-between",
