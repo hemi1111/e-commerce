@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { GET_SHOES } from "../../queries/queries";
 import { Box, Grid, Typography } from "@mui/material";
 import ShoeCard from "../../components/ShoeCard";
-import {Shoe,ShoesData} from "./types";
+import { Shoe, ShoesData } from "./types";
 
 const Shop = () => {
   const { data } = useQuery<ShoesData>(GET_SHOES);
@@ -14,8 +14,9 @@ const Shop = () => {
       </Typography>
       <Box
         sx={{
-          marginTop: "20px",
-          marginLeft: "5%",
+          marginTop: "5px",
+          padding: "20px",
+          // marginLeft: "5%",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -23,7 +24,7 @@ const Shop = () => {
       >
         <Grid container spacing={5}>
           {data &&
-            data.shoes.map((shoe : Shoe) => (
+            data.shoes.map((shoe: Shoe) => (
               <Grid item key={shoe.id} xs={12} sm={6} md={4} lg={3}>
                 <ShoeCard
                   id={shoe.id}

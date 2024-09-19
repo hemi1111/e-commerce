@@ -2,7 +2,7 @@ TRUNCATE shoes;
 INSERT INTO shoes (company, name, category, gender, size, price, image)
 VALUES
     ('Nike', 'Jordan 4', 'Basketball', 'Men', '44', 199.99, 'https://static.nike.com/a/images/t_prod_ss/w_960,c_limit,f_auto/31067687-75d2-405a-aa09-19f6562335fb/women-s-air-jordan-4-canyon-purple-aq9129-500-release-date.jpg'),
-    ('Adidas', 'Ultra Boost', 'Running', 'Men', '45.5', 179.99, 'https://content.rezetstore.dk/sites/default/files/styles/product_display_mobile/public/PIM-images/adidas/2336554/adidas-ultra-boost-10-carbon-carbon-cblack-233655-v1-780294.png'),
+    ('Adidas', 'Ultra Boost', 'Running', 'Men', '45.5', 179.99, 'https://prosteps.cloudimg.io/v7m/resizeinbox/1000x1000/fsharp0/https://tilroy.s3.eu-west-1.amazonaws.com/175/product/Runnerslab-ADIDAS-Ultraboost-Light-M-heren-men-HQ6351-loopschoen-running-shoe-advies-analyse-online-kopen-1.jpg'),
     ('Reebok', 'Classic Leather', 'Casual', 'Women', '38', 74.99, 'https://reebok.ca/cdn/shop/products/HQ2231B0098.jpg?v=1677551175'),
     ('Puma', 'Clyde Court', 'Basketball', 'Men', '43', 149.99, 'https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/192983/01/sv01/fnd/PNA/fmt/png/Clyde-Court-Roses-Basketball-Shoes'),
     ('New Balance', '327', 'Lifestyle', 'Men', '45.5', 174.99, 'https://nb.scene7.com/is/image/NB/ms327fe_nb_02_i?$dw_detail_main_lg$&bgc=f1f1f1&layer=1&bgcolor=f1f1f1&blendMode=mult&scale=10&wid=1600&hei=1600'),

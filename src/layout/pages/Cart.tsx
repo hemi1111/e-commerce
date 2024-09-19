@@ -1,4 +1,4 @@
-import  { useContext } from "react";
+import { useContext } from "react";
 import CartShoes from "../../components/CartShoes";
 import { Grid, Box, Typography } from "@mui/material";
 import { CartContext } from "../../context/CartContext";
@@ -24,7 +24,8 @@ const Cart = () => {
       </Button>
       <Box
         sx={{
-          marginTop: "20px",
+          // marginTop: "20px",
+          marginBottom: "10px",
           marginLeft: "5%",
           display: "flex",
           justifyContent: "center",
